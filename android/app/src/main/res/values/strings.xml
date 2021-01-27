@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">OtaExample</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">UOx7xQ-0TDdY5B4ffJV7jS_D-dY-RfFJ8rUov</string>
+</resources>
