@@ -14,6 +14,9 @@ jobs:
 
       - run: yarn install
 
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
       - run: ./gradlew assembleDebug -Dorg.gradle.logging.level=info
         working-directory: android
         name: Build Android apk (debug)
