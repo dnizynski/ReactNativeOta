@@ -7,7 +7,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import codePush from 'react-native-code-push';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -72,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default codePush(App);
+export default App;
