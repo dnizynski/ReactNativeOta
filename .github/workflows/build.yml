@@ -1,0 +1,47 @@
+name: Build development
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Check cached node dependencies
+        uses: c-hive/gha-yarn-cache@v1
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Cache Gradle Wrapper
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-caches-
+
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
+      - run: ./gradlew assembleDebug -Dorg.gradle.logging.level=info
+        working-directory: android
+        name: Build Android apk (debug)
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: android-apk
+          path: '**/*.apk'
