@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Use Node.js v12
         uses: actions/setup-node@v1
@@ -18,7 +18,7 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
-      - run: yarn install
+        run: yarn install
 
       - name: Run tests
-      - run: yarn test
+        run: yarn test
