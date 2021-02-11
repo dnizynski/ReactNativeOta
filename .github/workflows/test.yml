@@ -18,7 +18,7 @@ jobs:
           node-version: 12.x
 
       - name: Check cached node dependencies
-      - uses: c-hive/gha-yarn-cache@v1
+        uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
         run: yarn install
