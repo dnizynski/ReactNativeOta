@@ -39,7 +39,7 @@ jobs:
 
       - name: Build Android apk (debug)
         run: |
-        cd android && ./gradlew bundleRelease --no-daemon
+          cd android && ./gradlew bundleRelease --no-daemon
 
       - name: Sign App Bundle
         id: sign_app
