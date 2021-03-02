@@ -23,6 +23,7 @@ const App = () => {
           <View style={styles.body}>
             <Text>Test</Text>
             <Text>Test2</Text>
+            <Text>Test3</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
