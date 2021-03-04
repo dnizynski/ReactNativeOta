@@ -24,6 +24,7 @@ const App = () => {
             <Text>Test</Text>
             <Text>Test2</Text>
             <Text>Test3</Text>
+            <Text>Test3</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
